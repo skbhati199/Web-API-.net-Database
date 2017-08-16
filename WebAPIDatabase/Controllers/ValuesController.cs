@@ -9,6 +9,8 @@ namespace WebAPIDatabase.Controllers
 {
     public class ValuesController : ApiController
     {
+        private DBHelper mDBHelper = new DBHelper();
+
         // GET api/values
         public IEnumerable<string> Get()
         {
@@ -22,8 +24,9 @@ namespace WebAPIDatabase.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public string Post([FromBody]int value)
         {
+           return mDBHelper.getSp(value);
         }
 
         // PUT api/values/5
